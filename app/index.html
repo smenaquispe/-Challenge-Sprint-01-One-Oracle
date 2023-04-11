@@ -6,7 +6,15 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+
+    <!-- app -->
+    <input name="inputText" id="inputText" pattern="[a-z]{1,15}" type="text" placeholder="Ingese texto...">
+    <button type="button" id="encriptar">Encriptar</button>
+    <button type="button" id="desencriptar">Desencriptar</button>
+    <div id="resultText"></div>
+    <button type="button" id="copy">Copiar</button>
+
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
