@@ -40,17 +40,16 @@ const desincriptying = (input) => {
   return desencripted
 }
 
-document.addEventListener('click', e => {
-  if(e.target.matches('#encriptar')){
-    const { value } = $('#inputText')
-    const encripted = encrypting(value)
-    encripted.split('\n').forEach(paragraph => $('#resultText').innerHTML += paragraph + '<br>')
-  }
+const doFunction = (funct) => {
+  const { value } = $('#inputText')
+  const result = funct(value)
 
-  if(e.target.matches('#desencriptar')){
-    const { value } = $('#inputText')
-    const desencripted = desincriptying(value)
-    desencripted.split('\n').forEach(paragraph => $('#resultText').innerHTML += paragraph + '<br>')
-  }
+  $('#resultText').innerHTML = ''
+  result.split('\n').forEach(paragraph => $('#resultText').innerHTML += paragraph + '<br>')
+}
+
+document.addEventListener('click', e => {
+  if(e.target.matches('#encriptar')) doFunction(encrypting)
+  else if(e.target.matches('#desencriptar')) doFunction(desincriptying)
   
 })
