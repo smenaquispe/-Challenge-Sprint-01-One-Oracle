@@ -45,11 +45,28 @@ const doFunction = (funct) => {
   const result = funct(value)
 
   $('#resultText').innerHTML = ''
-  result.split('\n').forEach(paragraph => $('#resultText').innerHTML += paragraph + '<br>')
+  result.split('\n').forEach((paragraph, index, array) => {
+    $('#resultText').innerHTML += paragraph 
+    if(index !== array.length - 1) $('#resultText').innerHTML += '<br>'
+  })
 }
+
+/**
+ * click board
+ */
+
+const copy = () => {
+  const result = $('#resultText').innerHTML.split('<br>').join('\n')
+  console.log(result)
+  navigator.clipboard.writeText(result);
+}
+
+/**
+ * click events
+ */
 
 document.addEventListener('click', e => {
   if(e.target.matches('#encriptar')) doFunction(encrypting)
-  else if(e.target.matches('#desencriptar')) doFunction(desincriptying)
-  
+  else if(e.target.matches('#desencriptar')) doFunction(desincriptying)  
+  else if(e.target.matches('#copy')) copy()
 })
