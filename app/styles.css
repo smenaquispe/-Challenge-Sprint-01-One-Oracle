@@ -1,0 +1,74 @@
+:root {
+    --color-1: #C72C41;
+    --color-2: white;
+    --color-3: #2D132C
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+
+#inputText {
+    height: calc(100vh -100px);
+    width: calc(50% - 100px);
+    resize: none;
+    padding: 50px;
+    border: none;
+    font-size: xx-large;
+    font-weight: 300;
+}
+
+#inputText:focus {
+    outline: none;
+}
+
+
+#resultText {
+    position: absolute;
+    height: calc(100vh - 100px);
+    width:  calc(50% - 100px);
+    background-color: var(--color-1);
+    left: 50%;
+    top: 0;
+
+    font-size: xx-large;
+    padding: 50px;
+    color: var(--color-2);
+    font-style: bold;
+
+    font-family: 'Lato', sans-serif;
+}
+
+.button {
+    position: fixed;
+    top: 80vh;
+    z-index: 1;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all ease 0.4s;
+}
+
+.button:hover {
+    box-shadow: 5px 5px 5px var(--color-3);
+}
+
+#encriptar {
+    background-color: var(--color-1);
+    color: var(--color-2);
+    left: 10%;
+}
+
+#desencriptar {
+    background-color: var(--color-1);
+    color: var(--color-2);
+    left: 30%;
+}
+
+#copy {
+    left: 68%;
+    background-color: var(--color-2);
+    color: var(--color-1);
+    padding: 25px 80px;
+}

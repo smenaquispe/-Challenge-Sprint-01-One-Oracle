@@ -57,16 +57,14 @@ const doFunction = (funct) => {
 
 const copy = () => {
   const result = $('#resultText').innerHTML.split('<br>').join('\n')
-  console.log(result)
   navigator.clipboard.writeText(result);
 }
 
 /**
  * click events
  */
+$('#encriptar').addEventListener('click', e => doFunction(encrypting))
+$('#desencriptar').addEventListener('click', e => doFunction(desincriptying))
+$('#copy').addEventListener('click', e => copy())
 
-document.addEventListener('click', e => {
-  if(e.target.matches('#encriptar')) doFunction(encrypting)
-  else if(e.target.matches('#desencriptar')) doFunction(desincriptying)  
-  else if(e.target.matches('#copy')) copy()
-})
+
