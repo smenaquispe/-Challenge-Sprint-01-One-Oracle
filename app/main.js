@@ -18,21 +18,26 @@ $('#inputText').addEventListener('keypress', e => {
 })
 
 /** encripting and desincriptying */
-const encrypting = (input) => {
-  let encripted = input
-  const encrpytingKeys = {
-    a : 'ai',
-    e : 'enter',
-    i : 'imes',
-    o : 'ober',
-    u : 'ufat'
-  }
+const encrpytingKeys = {
+  a : 'ai',
+  e : 'enter',
+  i : 'imes',
+  o : 'ober',
+  u : 'ufat'
+}
 
-  for(const [key, value] of Object.entries(encrpytingKeys)) {
-    encripted = encripted.replaceAll(key, value)
-  }
-  
+const encrypting = (input) => {
+  const chars = input.split('')
+  let encripted = ''
+  chars.forEach(ch => encrpytingKeys[ch] ? encripted += encrpytingKeys[ch] : encripted += ch)
   return encripted
+}
+
+const desincriptying = (input) => {
+  let desencripted = input
+  for(const [key, value] of Object.entries(encrpytingKeys))
+    desencripted = desencripted.replaceAll(value, key)
+  return desencripted
 }
 
 document.addEventListener('click', e => {
@@ -41,4 +46,11 @@ document.addEventListener('click', e => {
     const encripted = encrypting(value)
     encripted.split('\n').forEach(paragraph => $('#resultText').innerHTML += paragraph + '<br>')
   }
+
+  if(e.target.matches('#desencriptar')){
+    const { value } = $('#inputText')
+    const desencripted = desincriptying(value)
+    desencripted.split('\n').forEach(paragraph => $('#resultText').innerHTML += paragraph + '<br>')
+  }
+  
 })
