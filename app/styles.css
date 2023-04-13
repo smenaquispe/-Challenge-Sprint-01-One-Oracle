@@ -25,15 +25,16 @@
 
 
 #resultText {
-    position: absolute;
     height: calc(100vh - 100px);
     width:  calc(50% - 100px);
+    padding: 50px;
+
+    position: absolute;
     background-color: var(--color-1);
     left: 50%;
     top: 0;
 
     font-size: xx-large;
-    padding: 50px;
     color: var(--color-2);
     font-style: bold;
 
@@ -109,4 +110,46 @@
     opacity: 1;
 
     transform: translateY(0px);
+}
+
+/*responsive design*/
+
+@media (max-width: 700px) {
+    
+    #inputText {
+        width: calc(100% - 60px);
+        height: calc(50vh - 60px);
+        padding: 30px;
+    }
+
+    #resultText {
+        width: calc(100% - 60px);
+        height: calc(50vh - 60px);
+        left: 0;
+        top: 50vh;
+        padding: 30px;
+    }
+
+    .button {
+        top: calc(50vh - 90px);
+    }
+
+    #desencriptar {
+        left: 60vw;
+    }
+
+    #copy {
+        top: 90vh;
+        left: 25vw;
+    }
+
+    #message-input-text{
+        top: 10vh;
+        left: 30vw;
+    }
+
+    #message-copy {
+        top: 60vh;
+        left: 40vw;
+    }
 }
