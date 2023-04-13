@@ -1,11 +1,21 @@
 const $ = selector => document.querySelector(selector)
 
+/** function allow appear and desapeear */
+const appear = selector => {
+  $(selector).classList.add('appear')
+  setTimeout(() => {
+    $(selector).classList.remove('appear')
+  }, 1000);
+}
+
+
 /** check input */
 const checkInput = (event, key) => {
   const regex = /^[a-z]*$/;
   if (!regex.test(key)) {
     if(key === ' ' || key === '\r') return true
     event.preventDefault();
+    appear('#message-input-text')
     return false;
   }
   return true;
@@ -88,6 +98,7 @@ const doFunction = (funct) => {
 const copy = () => {
   const result = $('#resultText').innerHTML.split('<br>').join('\n')
   navigator.clipboard.writeText(result);
+  appear('#message-copy')
 }
 
 /**

@@ -1,7 +1,7 @@
 :root {
     --color-1: #C72C41;
     --color-2: white;
-    --color-3: #2D132C
+    --color-3: gray;
 }
 
 * {
@@ -67,7 +67,7 @@
 }
 
 .disabled {
-    background-color: gray;
+    background-color: var(--color-3);
 }
 
 #copy {
@@ -75,4 +75,38 @@
     background-color: var(--color-2);
     color: var(--color-1);
     padding: 25px 80px;
+}
+
+/* messages */
+
+.message {
+    position: fixed;
+    z-index: 1;
+    top: 40%;
+    background-color: var(--color-3);
+    color: var(--color-2);
+    padding: 15px;
+    border-radius: 5px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition: all ease-in-out 0.6s;
+}
+
+#message-input-text {
+    left: 18%;
+}
+
+#message-copy {
+    left: 72%;
+}  
+
+.appear {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateY(0px);
 }
