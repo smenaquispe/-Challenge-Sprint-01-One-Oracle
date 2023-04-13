@@ -1,9 +1,8 @@
 const $ = selector => document.querySelector(selector)
 
 /** check input */
-const checkInput = event => {
+const checkInput = (event, key) => {
   const regex = /^[a-z]*$/;
-  const key = String.fromCharCode(event.keyCode);
   if (!regex.test(key)) {
     if(key === ' ' || key === '\r') return true
     event.preventDefault();
@@ -12,9 +11,20 @@ const checkInput = event => {
   return true;
 }
 
-
 $('#inputText').addEventListener('keypress', e => {
-  checkInput(e)
+  const key = String.fromCharCode(e.keyCode);
+  checkInput(e, key)
+})
+
+$('#inputText').addEventListener('paste', async (e) => {
+  e.preventDefault()
+  const text = navigator.clipboard.readText()
+  text.then(
+    t => {
+      const good = t.split('').every(ch => checkInput(e, ch))
+      if(good) e.target.value = t
+    } 
+  )
 })
 
 /** encripting and desincriptying */
