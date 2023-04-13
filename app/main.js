@@ -11,6 +11,17 @@ const checkInput = (event, key) => {
   return true;
 }
 
+const emptyButton = () => {
+  if($('#inputText').value.length === 0) {
+    $('#encriptar').classList.add('disabled')
+    $('#desencriptar').classList.add('disabled')
+  } else {
+    $('#encriptar').classList.remove('disabled')
+    $('#desencriptar').classList.remove('disabled')
+  }
+}
+
+
 $('#inputText').addEventListener('keypress', e => {
   const key = String.fromCharCode(e.keyCode);
   checkInput(e, key)
@@ -25,6 +36,15 @@ $('#inputText').addEventListener('paste', async (e) => {
       if(good) e.target.value = t
     } 
   )
+})
+
+/** detect if input is empty */
+window.addEventListener('load', e => {
+  emptyButton()
+})
+
+$('#inputText').addEventListener('keyup', e => {
+  emptyButton()
 })
 
 /** encripting and desincriptying */

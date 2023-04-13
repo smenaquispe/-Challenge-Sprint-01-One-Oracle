@@ -45,7 +45,7 @@
     top: 80vh;
     z-index: 1;
     border: none;
-    padding: 20px;
+    padding: 20px 50px;
     border-radius: 10px;
     transition: all ease 0.4s;
 }
@@ -54,16 +54,20 @@
     box-shadow: 5px 5px 5px var(--color-3);
 }
 
-#encriptar {
+.encriptar {
     background-color: var(--color-1);
     color: var(--color-2);
     left: 10%;
 }
 
-#desencriptar {
+.desencriptar {
     background-color: var(--color-1);
     color: var(--color-2);
     left: 30%;
+}
+
+.disabled {
+    background-color: gray;
 }
 
 #copy {
